@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var enterNameTextfield: UITextField!
     @IBOutlet weak var enterMessageTextfield: UITextField!
     @IBOutlet weak var mailbutton: UIButton!
+    @IBOutlet weak var nameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,11 +25,19 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
     @IBAction func sendMailButtonPressed(sender: UIButton) {
         messageLabel.hidden = false
         messageLabel.text = enterMessageTextfield.text
         messageLabel.textColor = UIColor.redColor()
+        
+        nameLabel.hidden = false
+        nameLabel.text = enterNameTextfield.text
+        nameLabel.textColor = UIColor.blueColor()
+        
+        enterNameTextfield.text = ""
+        enterNameTextfield.resignFirstResponder()
         
         enterMessageTextfield.text = ""
         enterMessageTextfield.resignFirstResponder()
